@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ka">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>LuxonPower | Coming Soon</title>
+        <link rel="icon" href="./images/luxonpower-logo.png" type="image/png" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            :root {
+                color-scheme: dark;
+            }
+
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                min-height: 100vh;
+                background: #08090b;
+                color: #fff;
+                font-family: "Noto Sans Georgian", "Space Grotesk", "Inter", system-ui,
+                    -apple-system, "Segoe UI", sans-serif;
+            }
+
+            .page {
+                position: relative;
+                min-height: 100vh;
+                overflow: hidden;
+                background-image: radial-gradient(
+                        circle at 12% 18%,
+                        rgba(251, 191, 36, 0.35),
+                        transparent 32%
+                    ),
+                    radial-gradient(
+                        circle at 85% 10%,
+                        rgba(251, 113, 133, 0.32),
+                        transparent 28%
+                    ),
+                    radial-gradient(
+                        circle at 70% 78%,
+                        rgba(88, 28, 135, 0.18),
+                        transparent 32%
+                    );
+            }
+
+            .page::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                pointer-events: none;
+                background: radial-gradient(
+                        circle at 25% 80%,
+                        #6b21a850 0,
+                        #0a0b0d 32%
+                    ),
+                    radial-gradient(circle at 92% 60%, #f9731640 0, #0a0b0d 25%);
+                filter: blur(38px);
+            }
+
+            .container {
+                position: relative;
+                z-index: 1;
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 40px 24px 64px;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                gap: 32px;
+            }
+
+            .header {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 78px;
+                padding: 20px 32px;
+                border-radius: 999px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                background: rgba(255, 255, 255, 0.05);
+                box-shadow: 0 26px 80px rgba(0, 0, 0, 0.35);
+                backdrop-filter: blur(12px);
+            }
+
+            .header::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                border-radius: 999px;
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                pointer-events: none;
+            }
+
+            .header-label {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                text-transform: uppercase;
+                letter-spacing: 0.25em;
+                font-size: 14px;
+                color: rgba(255, 255, 255, 0.8);
+                position: relative;
+                z-index: 1;
+            }
+
+            .sparkles {
+                width: 20px;
+                height: 20px;
+                color: #fcd34d;
+            }
+
+            .main {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 28px;
+                align-items: center;
+                flex: 1;
+                padding-top: 24px;
+                padding-bottom: 12px;
+            }
+
+            @media (min-width: 960px) {
+                .container {
+                    padding: 40px 40px 64px;
+                }
+
+                .main {
+                    grid-template-columns: 1.15fr 0.85fr;
+                    gap: 48px;
+                }
+            }
+
+            .pill {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 10px 16px;
+                border-radius: 999px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                background: rgba(255, 255, 255, 0.05);
+                font-size: 11px;
+                text-transform: uppercase;
+                letter-spacing: 0.24em;
+                color: rgba(255, 255, 255, 0.7);
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+                backdrop-filter: blur(8px);
+            }
+
+            .zap {
+                width: 16px;
+                height: 16px;
+                color: #fcd34d;
+            }
+
+            h1 {
+                font-size: clamp(32px, 4vw + 12px, 48px);
+                font-weight: 600;
+                line-height: 1.2;
+                color: #fff;
+            }
+
+            .cta-row {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .cta {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                padding: 14px 22px;
+                border-radius: 999px;
+                background: #fff;
+                color: #0a0b0d;
+                font-weight: 600;
+                text-decoration: none;
+                box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+                transition: transform 160ms ease, box-shadow 200ms ease;
+            }
+
+            .cta:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 22px 70px rgba(0, 0, 0, 0.4);
+            }
+
+            .cta svg {
+                width: 18px;
+                height: 18px;
+                transition: transform 180ms ease;
+            }
+
+            .cta:hover svg {
+                transform: translate(3px, -3px);
+            }
+
+            .cta-note {
+                font-size: 13px;
+                color: rgba(255, 255, 255, 0.55);
+            }
+
+            .orb-wrap {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .orb-bg {
+                position: absolute;
+                inset: -32px;
+                border-radius: 32px;
+                background: linear-gradient(
+                    135deg,
+                    rgba(251, 191, 36, 0.3),
+                    rgba(244, 63, 94, 0.2),
+                    rgba(99, 102, 241, 0.25)
+                );
+                filter: blur(32px);
+            }
+
+            .orb-card {
+                position: relative;
+                width: min(430px, 100%);
+                aspect-ratio: 1 / 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 40px;
+                border-radius: 28px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                background: rgba(255, 255, 255, 0.05);
+                box-shadow: 0 25px 80px rgba(0, 0, 0, 0.45);
+                backdrop-filter: blur(12px);
+                overflow: hidden;
+            }
+
+            .orb {
+                position: relative;
+                width: 16rem;
+                height: 16rem;
+                border-radius: 999px;
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                background: linear-gradient(135deg, #fff, #fef3c7, #ffe4e6);
+                box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+            }
+
+            .orb img {
+                width: 12rem;
+                height: 12rem;
+                object-fit: contain;
+                image-rendering: auto;
+            }
+
+            .orb-label {
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 10px 18px;
+                border-radius: 999px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                background: rgba(255, 255, 255, 0.1);
+                font-size: 11px;
+                letter-spacing: 0.22em;
+                text-transform: uppercase;
+                color: rgba(255, 255, 255, 0.75);
+                backdrop-filter: blur(6px);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page">
+            <div class="container">
+                <header class="header">
+                    <div class="header-label">
+                        <svg
+                            class="sparkles"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                        >
+                            <path
+                                d="M12 3v2m0 14v2m9-9h-2M5 12H3m13.778-6.778-1.414 1.414M8.636 17.95l-1.414 1.414m0-14.142 1.414 1.414m7.728 7.728 1.414 1.414M9 12a3 3 0 1 1 6 0 3 3 0 0 1-6 0Z"
+                            />
+                        </svg>
+                        <span>LuxonPower</span>
+                    </div>
+                </header>
+
+                <main class="main">
+                    <div class="content">
+                        <div class="pill">
+                            <svg
+                                class="zap"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path d="m13 2-8 12h9l-1 8 8-12h-9l1-8Z" />
+                            </svg>
+                            <span>Coming soon</span>
+                        </div>
+                        <div style="margin-top: 16px; margin-bottom: 18px">
+                            <h1>ვებგვერდი მზადების პროცესშია</h1>
+                        </div>
+                        <div class="cta-row">
+                            <a
+                                class="cta"
+                                href="https://soft.salesapp.ge/generated-lead-form/luxonpower-servisis-ganatskhadis-forma/Pzjk"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                დაგვიკავშირდით
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <path d="M7 17 17 7M8 7h9v9" />
+                                </svg>
+                            </a>
+                            <span class="cta-note">
+                                დაგვიტოვეთ თქვენი კოორდინატები და უმალვე დაგიკავშირდებით.
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="orb-wrap">
+                        <div class="orb-bg" aria-hidden="true"></div>
+                        <div class="orb-card">
+                            <div class="orb">
+                                <img
+                                    src="./images/luxonpower-logo.png"
+                                    alt="LuxonPower logo"
+                                    loading="eager"
+                                />
+                            </div>
+                            <div class="orb-label">Coming soon</div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </body>
+</html>
