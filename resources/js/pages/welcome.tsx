@@ -834,8 +834,8 @@ export default function Welcome(): JSX.Element {
                     closeLangMenu={closeLangMenu}
                 />
 
-                <main className="snap-y snap-proximity">
-                    <section className="relative isolate overflow-hidden snap-start snap-always">
+                <main>
+                    <section className="relative isolate overflow-hidden snap-start">
                         <img
                             src="/images/home-background.png"
                             alt="Renewable energy landscape"
@@ -891,7 +891,7 @@ export default function Welcome(): JSX.Element {
                         </div>
                     </section>
 
-                    <section className="snap-start snap-always bg-white px-4 pb-28 pt-20 lg:px-12">
+                    <section className="bg-white px-4 pb-28 pt-20 lg:px-12">
                         <div className="mx-auto flex max-w-7xl flex-col gap-16">
                             <div className="space-y-3 lg:pl-2 reveal" data-animate>
                                 <p className="text-xs uppercase tracking-[0.18em] text-[#5b94b4]">
@@ -942,7 +942,7 @@ export default function Welcome(): JSX.Element {
                         </div>
                     </section>
 
-                    <section className="snap-start snap-always bg-[#082062] px-4 pb-24 pt-24 text-white lg:px-0">
+                    <section className="bg-[#082062] px-4 pb-24 pt-24 text-white lg:px-0">
                         <div className="mx-auto flex max-w-7xl flex-col gap-12 lg:flex-row lg:items-start lg:gap-12">
                             <div className="w-full lg:w-1/2 lg:pl-12">
                                 <div className="space-y-4 reveal" data-animate>
@@ -996,7 +996,7 @@ export default function Welcome(): JSX.Element {
                         </div>
                     </section>
 
-                    <section className="snap-start snap-always relative overflow-hidden bg-white px-4 pb-28 pt-24 lg:px-12">
+                    <section className="relative overflow-hidden bg-white px-4 pb-28 pt-24 lg:px-12">
                        
                         <div
                             className="absolute right-[-8%] bottom-[-16%] h-80 w-80 rounded-full bg-[#082062]/28 blur-[170px] animate-[productPulse_12s_ease-in-out_infinite]"
@@ -1100,7 +1100,7 @@ export default function Welcome(): JSX.Element {
                         </div>
                     </section>
 
-                    <section className="snap-start snap-always bg-gradient-to-br from-[#0c1f45] via-[#0f285c] to-[#0a1b3d] px-4 pb-18 pt-16 text-white lg:px-12">
+                    <section className="bg-gradient-to-br from-[#0c1f45] via-[#0f285c] to-[#0a1b3d] px-4 pb-18 pt-16 text-white lg:px-12">
                         <div className="mx-auto flex max-w-7xl flex-col gap-10">
                                 <div className="space-y-4 reveal" data-animate>
                                     <p className="text-xs uppercase tracking-[0.2em] text-[#5b94b4]">
