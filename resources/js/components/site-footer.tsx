@@ -1,31 +1,34 @@
 import { Facebook, Instagram, Linkedin, Mail, MapPin, MessageCircle, Phone, Send } from 'lucide-react';
 import { useState } from 'react';
 import type { JSX } from 'react';
+import type { Language } from '@/types/language';
 
 interface SiteFooterProps {
     navItems: string[];
     headline: string;
     blurb: string;
+    language: Language;
 }
 
-export function SiteFooter({ navItems, headline, blurb }: SiteFooterProps): JSX.Element {
+export function SiteFooter({ navItems, headline, blurb, language }: SiteFooterProps): JSX.Element {
     const [showNewsletter, setShowNewsletter] = useState(false);
+    const isGe = language === 'ge';
 
     const contactDetails = [
         {
-            label: 'Phone',
+            label: isGe ? 'ტელეფონი' : 'Phone',
             value: '+995 598 883 740',
             href: 'tel:+995598883740',
             Icon: Phone,
         },
         {
-            label: 'Email',
+            label: isGe ? 'ელფოსტა' : 'Email',
             value: 'info@luxonpower.ge',
             href: 'mailto:info@luxonpower.ge',
             Icon: Mail,
         },
         {
-            label: 'Address',
+            label: isGe ? 'მისამართი' : 'Address',
             value: 'საქართველო, თბილისი, მ/ს  სარაჯიშვილის მიმდებარე ტერიტორია',
             href: 'https://maps.google.com/?q=LuxonPower',
             Icon: MapPin,
@@ -61,15 +64,15 @@ export function SiteFooter({ navItems, headline, blurb }: SiteFooterProps): JSX.
 
                 <div className="flex flex-1 flex-col gap-6 lg:w-[30%]">
                     <div className="space-y-3 rounded-2xl bg-white/5 p-5 shadow-[0_12px_30px_rgba(0,0,0,0.18)] backdrop-blur">
-                        <h3 className="text-lg font-semibold">Contact</h3>
+                        <h3 className="text-lg font-semibold">{isGe ? 'კონტაქტი' : 'Contact'}</h3>
                         <div className="space-y-3 text-sm text-white/85">
                             {contactDetails.map(({ label, value, href, Icon }) => (
                                 <a
                                     key={label}
                                     href={href}
-                                    className="group flex items-start gap-3 rounded-xl border border-white/5 px-3 py-2 transition hover:border-[#e76701]/60 hover:bg-white/5"
+                                    className="group flex items-center gap-3 rounded-xl border border-white/5 px-3 py-2 transition hover:border-[#e76701]/60 hover:bg-white/5"
                                 >
-                                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white group-hover:bg-[#e76701]">
+                                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white group-hover:bg-[#e76701]">
                                         <Icon className="h-4 w-4" />
                                     </span>
                                     <span className="flex-1 leading-6">
@@ -99,53 +102,59 @@ export function SiteFooter({ navItems, headline, blurb }: SiteFooterProps): JSX.
                 </div>
 
                 <div className="flex flex-1 flex-col gap-4 rounded-2xl bg-white/5 p-5 shadow-[0_12px_30px_rgba(0,0,0,0.18)] backdrop-blur lg:w-[32%]">
-                    <h3 className="text-lg font-semibold">Contact us</h3>
+                    <h3 className="text-lg font-semibold">{isGe ? 'დაგვიკავშირდით' : 'Contact us'}</h3>
                     <div className="grid grid-cols-1 gap-3">
                         <input
                             type="text"
                             name="name"
-                            placeholder="Name"
+                            placeholder={isGe ? 'სახელი' : 'Name'}
                             className="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/60 focus:border-[#e76701] focus:outline-none focus:ring-1 focus:ring-[#e76701]"
                         />
                         <input
                             type="email"
                             name="email"
-                            placeholder="Email"
+                            placeholder={isGe ? 'ელ.ფოსტა' : 'Email'}
                             className="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/60 focus:border-[#e76701] focus:outline-none focus:ring-1 focus:ring-[#e76701]"
                         />
                         <input
                             type="tel"
                             name="phone"
-                            placeholder="Phone number"
+                            placeholder={isGe ? 'ტელეფონის ნომერი' : 'Phone number'}
                             className="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/60 focus:border-[#e76701] focus:outline-none focus:ring-1 focus:ring-[#e76701]"
                         />
                         <textarea
                             name="message"
                             rows={3}
-                            placeholder="How can we help?"
+                            placeholder={isGe ? 'როგორ შეგვიძლია დახმარება?' : 'How can we help?'}
                             className="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/60 focus:border-[#e76701] focus:outline-none focus:ring-1 focus:ring-[#e76701]"
                         />
                         <button
                             type="button"
                             className="mt-1 inline-flex items-center justify-center gap-2 rounded-full bg-[#e76701] px-4 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(231,103,1,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
                         >
-                            Send
+                            {isGe ? 'გაგზავნა' : 'Send'}
                             <Send className="h-4 w-4" />
                         </button>
                     </div>
 
                     <div className="mt-2 space-y-3 rounded-2xl border border-white/10 bg-white/5 p-4">
-                        <div className="flex items-center justify-between">
+                        <div className="flex items-center justify-between gap-1">
                             <div>
-                                <p className="text-sm font-semibold">Subscribe to newsletter</p>
-                                <p className="text-xs text-white/70">Get updates on new services and grants.</p>
+                                <p className="text-sm font-semibold">
+                                    {isGe ? 'გამოიწერე სიახლეები' : 'Subscribe to newsletter'}
+                                </p>
+                                <p className="text-xs text-white/70">
+                                    {isGe
+                                        ? 'მიიღე განახლებები ახალ სერვისებზე და გრანტებზე.'
+                                        : 'Get updates on new services and grants.'}
+                                </p>
                             </div>
                             <button
                                 type="button"
                                 onClick={() => setShowNewsletter((prev) => !prev)}
                                 className="rounded-full border border-white/15 bg-white/10 px-3 py-2 text-xs font-semibold text-white transition hover:border-[#e76701]/60 hover:bg-[#e76701]"
                             >
-                                {showNewsletter ? 'Close' : 'Subscribe'}
+                                {showNewsletter ? (isGe ? 'დახურვა' : 'Close') : isGe ? 'გამოწერა' : 'Subscribe'}
                             </button>
                         </div>
                         {showNewsletter ? (
@@ -153,14 +162,14 @@ export function SiteFooter({ navItems, headline, blurb }: SiteFooterProps): JSX.
                                 <input
                                     type="email"
                                     name="newsletterEmail"
-                                    placeholder="Your email"
+                                    placeholder={isGe ? 'ელ.ფოსტა' : 'Your email'}
                                     className="w-full rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/60 focus:border-[#e76701] focus:outline-none focus:ring-1 focus:ring-[#e76701]"
                                 />
                                 <button
                                     type="button"
                                     className="inline-flex items-center justify-center gap-2 rounded-full bg-[#e76701] px-4 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(231,103,1,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
                                 >
-                                    Join
+                                    {isGe ? '✓' : 'Join'}
                                 </button>
                             </div>
                         ) : null}

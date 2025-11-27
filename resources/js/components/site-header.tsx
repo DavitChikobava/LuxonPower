@@ -6,7 +6,6 @@ interface SiteHeaderProps {
     navItems: string[];
     contactLabel: string;
     contactUrl: string;
-    isStuck: boolean;
     showLangMenu: boolean;
     onLanguageChange: (language: Language) => void;
     toggleLangMenu: () => void;
@@ -18,7 +17,6 @@ export function SiteHeader({
     navItems,
     contactLabel,
     contactUrl,
-    isStuck,
     showLangMenu,
     onLanguageChange,
     toggleLangMenu,
@@ -27,13 +25,8 @@ export function SiteHeader({
     const flag = language === 'ge' ? '🇬🇪' : '🇬🇧';
 
     return (
-        <header className={`z-30 ${isStuck ? 'sticky top-0' : 'absolute inset-x-0 top-0'}`}>
-            <div
-                className={`flex items-center justify-between bg-white/95 px-6 py-3 text-base font-semibold transition-all duration-300 backdrop-blur ${isStuck
-                        ? 'w-full max-w-none rounded-none shadow-[0_12px_30px_rgba(0,0,0,0.08),0_3px_12px_rgba(0,0,0,0.08)]'
-                        : 'mt-4 mx-4 sm:mx-6 md:mx-8 lg:mx-12 xl:mx-16 rounded-2xl shadow-[0_18px_44px_rgba(0,0,0,0.14)]'
-                    } md:px-8 lg:px-12 lg:py-3.5`}
-            >
+        <header className="absolute inset-x-0 top-0 z-30">
+            <div className="mt-4 mx-4 flex items-center justify-between rounded-2xl bg-white/95 px-6 py-3 text-base font-semibold shadow-[0_18px_44px_rgba(0,0,0,0.14)] backdrop-blur transition-all duration-300 sm:mx-6 md:mx-8 lg:mx-12 xl:mx-16 md:px-8 lg:px-12 lg:py-3.5">
                 <div className="flex items-center gap-4">
                     <img
                         src="/images/luxonpower-logo.png"

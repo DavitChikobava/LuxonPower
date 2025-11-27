@@ -828,7 +828,6 @@ export default function Welcome(): JSX.Element {
                     navItems={t.nav}
                     contactLabel={t.contact}
                     contactUrl={contactUrl}
-                    isStuck={isStuck}
                     showLangMenu={showLangMenu}
                     onLanguageChange={setLanguage}
                     toggleLangMenu={toggleLangMenu}
@@ -1273,7 +1272,12 @@ export default function Welcome(): JSX.Element {
                         </div>
                     </section>
 
-                    <SiteFooter navItems={t.nav} headline={t.footerHeadline} blurb={t.footerBlurb} />
+                    <SiteFooter
+                        navItems={t.nav}
+                        headline={t.footerHeadline}
+                        blurb={t.footerBlurb}
+                        language={language}
+                    />
                 </main>
 
                 <button
