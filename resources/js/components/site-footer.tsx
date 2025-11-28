@@ -29,7 +29,7 @@ export function SiteFooter({ navItems, headline, blurb, language }: SiteFooterPr
         },
         {
             label: isGe ? 'მისამართი' : 'Address',
-            value: 'საქართველო, თბილისი, მ/ს  სარაჯიშვილის მიმდებარე ტერიტორია',
+            value: isGe? 'საქართველო, თბილისი, მ/ს  სარაჯიშვილის მიმდებარე ტერიტორია' : 'Georgia, Tbilisi, M/S Sarajishvili',
             href: 'https://maps.google.com/?q=LuxonPower',
             Icon: MapPin,
         },
@@ -86,7 +86,7 @@ export function SiteFooter({ navItems, headline, blurb, language }: SiteFooterPr
                                 </a>
                             ))}
                         </div>
-                        <div className="flex items-center gap-3 pt-1">
+                        <div className="flex items-center justify-center gap-3 pt-1">
                             {socialLinks.map(({ name, href, Icon }) => (
                                 <a
                                     key={name}

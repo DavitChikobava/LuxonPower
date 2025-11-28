@@ -18,7 +18,7 @@ import {
     Sun,
     Wrench,
 } from 'lucide-react';
-import { Head } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
 import type { JSX } from 'react';
 import { useEffect, useRef, useState } from 'react';
 
@@ -930,12 +930,12 @@ export default function Welcome(): JSX.Element {
                                         {t.about.description}
                                     </p>
                                     <div className="mt-auto pt-5">
-                                        <a
-                                            href="#"
+                                        <Link
+                                            href="/about"
                                             className="inline-flex items-center gap-2 rounded-full bg-[#e76701] px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-[0_14px_36px_rgba(231,103,1,0.4)]"
                                         >
                                             {t.about.cta}
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -953,7 +953,7 @@ export default function Welcome(): JSX.Element {
                                         {language === 'ge' ? 'ჩვენი სერვისები' : 'Our Services'}
                                     </h2>
                                 </div>
-                                <div className="mt-8 overflow-hidden rounded-3xl bg-[#0d2345] shadow-[0_26px_80px_rgba(0,0,0,0.35)] lg:mt-10 lg:mr-8 reveal" data-animate>
+                                <div className="mt-8 overflow-hidden bg-[#0d2345] shadow-[0_26px_80px_rgba(0,0,0,0.35)] lg:mt-10 lg:mr-8 reveal" data-animate>
                                     <img
                                         src="/images/luxonpower-service-img-1.png"
                                         alt={language === 'ge' ? 'სერვისების გამოსახულება' : 'Services visual'}
