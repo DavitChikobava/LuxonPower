@@ -1,5 +1,6 @@
 import type { Language } from '@/types/language';
 import type { JSX } from 'react';
+import { Link } from '@inertiajs/react';
 
 interface SiteHeaderProps {
     language: Language;
@@ -23,25 +24,34 @@ export function SiteHeader({
     closeLangMenu,
 }: SiteHeaderProps): JSX.Element {
     const flag = language === 'ge' ? '🇬🇪' : '🇬🇧';
+    const resolveNavHref = (label: string): string => {
+        if (label === 'ჩვენ შესახებ' || label === 'About') {
+            return '/about';
+        }
+
+        return '#';
+    };
 
     return (
         <header className="absolute inset-x-0 top-0 z-30">
             <div className="mt-4 mx-4 flex items-center justify-between rounded-2xl bg-white/95 px-6 py-3 text-base font-semibold shadow-[0_18px_44px_rgba(0,0,0,0.14)] backdrop-blur transition-all duration-300 sm:mx-6 md:mx-8 lg:mx-12 xl:mx-16 md:px-8 lg:px-12 lg:py-3.5">
                 <div className="flex items-center gap-4">
-                    <img
-                        src="/images/luxonpower-logo.png"
-                        alt="LuxonPower logo"
-                        className="h-[72px] w-[72px] object-contain"
-                    />
+                    <Link href="/" className="block rounded-full transition hover:-translate-y-0.5">
+                        <img
+                            src="/images/luxonpower-logo.png"
+                            alt="LuxonPower logo"
+                            className="h-[72px] w-[72px] object-contain"
+                        />
+                    </Link>
                     <nav className="hidden items-center gap-5 text-base font-semibold lg:flex">
                         {navItems.map((item) => (
-                            <a
+                            <Link
                                 key={item}
-                                href="#"
+                                href={resolveNavHref(item)}
                                 className="rounded-full px-3 py-2 transition hover:bg-[#5b94b4]/10"
                             >
                                 {item}
-                            </a>
+                            </Link>
                         ))}
                     </nav>
                 </div>
@@ -146,14 +156,14 @@ export function SiteHeader({
                             </div>
                             <div className="flex flex-wrap items-center gap-2 pt-1 text-sm text-[#082062]/80">
                                 {navItems.map((item) => (
-                                    <a
+                                    <Link
                                         key={item}
-                                        href="#"
+                                        href={resolveNavHref(item)}
                                         className="rounded-lg px-3 py-2 hover:bg-[#5b94b4]/10"
                                         onClick={closeLangMenu}
                                     >
                                         {item}
-                                    </a>
+                                    </Link>
                                 ))}
                             </div>
                         </div>
